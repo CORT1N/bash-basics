@@ -1,0 +1,5 @@
+#!/bin/bash
+
+set -e 
+
+echo "I ate $1 from $2 and it was tasty!"

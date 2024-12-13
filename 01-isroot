@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if [[ "$(whoami)" != "root" ]]
+then
+	echo 'Get out!'
+	exit 1
+else
+	echo 'OK, no problem... my bad.'
+fi

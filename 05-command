@@ -1,0 +1,39 @@
+#!/bin/bash
+
+set -e
+
+help () {
+    echo "usage:
+-h, --help  - print this helper
+-l, --ls    - list directories in the target directory (if no argument, takes working directory)
+-c, --cd    - change working directory to the target (if no argument, takes user's home)"
+}
+
+case $1 in
+    -h|--help)
+        help
+        ;;
+    -l|--ls)
+        if [[ -z $2 ]] 
+        then
+            ls -d */ 
+        else
+            ls -d $2/*/
+        fi
+        ;;
+    -c|--cd)
+        # Yes i cheated, because we execute cd in the script context
+        cd $2
+        echo $(pwd)
+        ;;
+    "")
+        help
+        exit 1
+        ;;  
+    *)
+        echo "$1 is not a valid argument."
+        echo ""
+        help
+        exit 1
+        ;;
+esac

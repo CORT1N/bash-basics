@@ -1,0 +1,27 @@
+#!/bin/bash
+
+set -e 
+
+choice=-1
+while [ "$choice" -ne "4" ]
+do
+  read -rp "$(echo -e '1, 2 or 3, and 4 to quit: ')" choice
+  case $choice in
+    "1")
+      echo "Good choice."
+      ;;
+    "2")
+      echo "Very good choice."
+      ;;
+    "3")
+      echo "Very bad choice!"
+      ;;
+    "4")
+      echo "Bye!"
+      exit 1
+      ;;
+    *)
+      echo "Unknown argument."
+      ;;
+  esac
+done

@@ -1,0 +1,13 @@
+#!/bin/bash
+
+if [ "$(whoami)" != "root" ];then
+	echo 'You need to be root to do that!'
+	exit 1
+fi
+
+cat /etc/shadowwwwwww
+
+if [ $? -ne 0 ];then
+	echo "ERROR: File doesn't exist."
+	exit 1
+fi
